@@ -1,0 +1,15 @@
+// app global css in SCSS form
+a:not(.q-tab) {
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  transition: color 0.1s ease;
+  &:hover {
+    color: #000;
+  }
+}
+
+.container{
+  max-width: 1200px;
+  padding: 0 10px;
+  width: 100%;
+}

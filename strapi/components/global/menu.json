@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_global_menus",
+  "info": {
+    "name": "Menus",
+    "icon": "align-left",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": false
+    },
+    "page": {
+      "model": "pages"
+    }
+  }
+}
