@@ -17,7 +17,7 @@
         <q-route-tab
           v-for="menu in menus"
           :key="menu.id"
-          :to="`/${menu.url || menu.page.slug}`"
+          :to="menu.url ? menu.url : `/${menu.page.slug}`"
           :label="menu.text"
         />
       </q-tabs>
