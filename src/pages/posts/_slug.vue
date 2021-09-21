@@ -3,7 +3,7 @@
     <h1 class="text-h3">{{ post.title }}</h1>
     <div class="container text-center">
       <q-img
-        :src="backendUrl + post.image.formats.large.url"
+        :src="backendUrl + post.image.url"
         :alt="post.image.alternativeText || ''"
         :title="post.image.caption || ''"
       />

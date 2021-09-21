@@ -7,9 +7,12 @@ import axios from 'axios'
 // good idea to move this instance creation inside of the
 // "export default () => {}" function below (which runs individually
 // for each client)
-const api = axios.create({ baseURL: process.env.API_URL })
+const api = axios.create({ 
+  baseURL: process.env.API_URL,
+  validateStatus: (status) => status < 500
+})
 
-export default boot(async ({ app }) => {
+export default boot(async ({ app, redirect }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
 
   app.config.globalProperties.$axios = axios
@@ -20,6 +23,10 @@ export default boot(async ({ app }) => {
   // ^ ^ ^ this will allow you to use this.$api (for Vue Options API form)
   //       so you can easily perform requests against your app's API
 
+  api.interceptors.response.use((response) => {
+    if (response.status == 404) return redirect("/404");
+    return response;
+  })
 })
 
 export { api }
