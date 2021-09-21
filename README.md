@@ -9,7 +9,7 @@ yarn
 
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
 ```bash
-quasar dev
+quasar dev -m ssr
 ```
 
 ### Lint the files
@@ -19,8 +19,20 @@ yarn run lint
 
 ### Build the app for production
 ```bash
-quasar build
+quasar build -m ssr
 ```
 
-### Customize the configuration
-See [Configuring quasar.conf.js](https://v2.quasar.dev/quasar-cli/quasar-conf-js).
+### Start the backend app in development mode
+```bash
+cd strapi/
+yarn 
+yarn develop
+```
+
+### Start the backend app in production mode
+```bash
+cd strapi/
+yarn 
+yarn build
+yarn start
+```
