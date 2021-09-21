@@ -13,7 +13,7 @@ export function globalInfo(state) {
 export function getFavicon(state) {
   return state.globalInfo.favicon
     ? process.env.API_URL + state.globalInfo.favicon.formats.small.url
-    : process.env.API_URL + "/favicon";
+    : process.env.API_URL + "/favicon.ico";
 }
 
 export function menus(state) {

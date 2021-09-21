@@ -5,8 +5,9 @@ const path = require("path");
 const mime = require("mime-types");
 const {
   categories,
-  homepage,
+  pages,
   writers,
+  menus,
   articles,
   global,
 } = require("../../data/data.json");
@@ -102,13 +103,6 @@ async function importCategories() {
   );
 }
 
-async function importHomepage() {
-  const files = {
-    "seo.shareImage": getFileData("default-image.png"),
-  };
-  await createEntry({ model: "homepage", entry: homepage, files });
-}
-
 async function importWriters() {
   return Promise.all(
     writers.map(async (writer) => {
@@ -122,6 +116,33 @@ async function importWriters() {
       });
     })
   );
+}
+
+async function importPages() {
+  return Promise.all(
+    pages.map(async (page) => {
+      return createEntry({
+        model: "pages",
+        entry: page,
+      });
+    })
+  );
+}
+
+async function importMenus() {
+  const pages = await strapi.query("pages").find();
+  let menusCopy = menus;
+
+  for (const [i, menu] of menus.menu_array.entries()) {
+    menusCopy.menu_array[i].page = pages.find(
+      (page) => page.id == menu.page.id
+    );
+  }
+
+  return createEntry({
+    model: "menu",
+    entry: menusCopy,
+  });
 }
 
 // Randomly set relations on Article to avoid error with MongoDB
@@ -182,18 +203,21 @@ async function importSeedData() {
   // Allow read of application content types
   await setPublicPermissions({
     global: ["find"],
-    homepage: ["find"],
+    menu: ["find"],
     article: ["find", "findone"],
+    'form-submissions': ['create'],
+    pages: ["find", "findone"],
     category: ["find", "findone"],
     writer: ["find", "findone"],
   });
 
   // Create all entries
   await importCategories();
-  await importHomepage();
   await importWriters();
   await importArticles();
   await importGlobal();
+  await importPages();
+  await importMenus();
 }
 
 module.exports = async () => {

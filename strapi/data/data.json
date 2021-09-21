@@ -21,16 +21,6 @@
       "slug": "story"
     }
   ],
-  "homepage": {
-    "seo": {
-      "metaTitle": "My personal Strapi blog",
-      "metaDescription": "Discover my SEO friendly blog built with Strapi.",
-      "shareImage": null
-    },
-    "hero": {
-      "title": "My blog"
-    }
-  },
   "writers": [
     {
       "name": "David Doe",
@@ -41,6 +31,47 @@
       "name": "Sarah Baker",
       "email": "sarahbaker@strapi.io",
       "picture": null
+    }
+  ],
+  "pages": [
+    {
+      "id": 1,
+      "Title": "Home",
+      "slug": "home",
+      "content": null,
+      "SeoForPages": {
+        "url": null,
+        "seo": {
+          "metaTitle": "My personal Strapi blog",
+          "metaDescription": "Discover my SEO friendly blog built with Strapi."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "Title": "Contact Us",
+      "slug": "contact-us",
+      "content": null,
+      "SeoForPages": {
+        "url": null,
+        "seo": {
+          "metaTitle": "Contact us",
+          "metaDescription": "Discover my SEO friendly blog built with Strapi."
+        }
+      }
+    },
+    {
+      "id": 3,
+      "Title": "About us",
+      "slug": "about-us",
+      "content": "<p style=\"margin-left:0px;text-align:justify;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus magna iaculis nunc ornare sodales. Vivamus congue a ex nec placerat. Etiam eu ullamcorper turpis, ac convallis ex. Duis tellus libero, iaculis ut odio ut, interdum ultrices dolor. Integer vitae diam tempus, mattis sapien ac, vulputate velit. Integer a odio at nunc finibus sodales. Nam quis tempor tortor. Nunc vel leo efficitur, pretium massa sit amet, varius augue. In augue risus, vulputate eu faucibus egestas, luctus ut tortor. Nam vulputate molestie arcu, ac pretium arcu blandit at.</p><p style=\"margin-left:0px;text-align:justify;\">Praesent sed quam sed quam bibendum blandit id sit amet purus. Donec sagittis, odio ut eleifend finibus, risus dui congue mi, eget accumsan eros mauris quis nulla. Sed ornare massa quis tortor placerat, eu efficitur magna maximus. Aliquam id consectetur nunc, ac pharetra urna. Donec sagittis at augue eu accumsan. Sed vitae mattis nulla, ut bibendum ipsum. Fusce semper sollicitudin tristique. Sed et urna tincidunt magna aliquet vestibulum. Ut vel sapien nec libero laoreet posuere.</p><p style=\"margin-left:0px;text-align:justify;\">Sed ac accumsan magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse ut nulla mi. Curabitur tempor quam et congue gravida. Fusce vel lorem laoreet, placerat erat ultricies, auctor augue. Donec ac lacus quam. Suspendisse placerat pharetra nunc ut pharetra. Nam sed neque ligula. Pellentesque sollicitudin posuere tellus, vitae laoreet mi pulvinar ac. Aenean pulvinar consequat aliquam. Fusce imperdiet eu sem quis tempus.</p><p style=\"margin-left:0px;text-align:justify;\">Sed justo neque, feugiat non commodo nec, vehicula vel ipsum. Donec in dictum ipsum. In consectetur erat ante, a fermentum ex gravida vitae. Morbi massa sapien, bibendum eu luctus rhoncus, gravida a ante. Fusce a pellentesque libero. Curabitur a venenatis nisl. In ut enim felis. Vestibulum tempus commodo neque, dictum vulputate nisi rhoncus at. Nunc cursus leo at massa ornare ultricies. Curabitur viverra lacinia feugiat. Nullam sit amet velit a tortor ultricies euismod vel sit amet elit. Duis interdum porta pellentesque. Aliquam erat volutpat.</p><p style=\"margin-left:0px;text-align:justify;\">Ut nec dui ac libero feugiat fermentum eu vestibulum elit. Mauris consequat, turpis vel feugiat pharetra, ante ipsum finibus lorem, a malesuada eros nunc eu velit. Nunc rhoncus, leo sed lobortis consequat, lacus nibh maximus diam, quis sodales dui nulla vitae eros. Aenean id facilisis magna. Sed id vehicula leo, laoreet cursus leo. Suspendisse odio arcu, iaculis in ultricies ac, elementum vel tortor. Nulla tristique tincidunt urna, vitae lacinia erat pretium vel. Maecenas et quam convallis, ullamcorper purus at, accumsan mi. Nulla nec ornare erat, in auctor risus. Integer sit amet quam libero. Quisque interdum vitae dui non viverra. Nunc vitae sem purus. Nunc sollicitudin felis risus, eget cursus mi venenatis eu. Aliquam sagittis congue placerat.</p>",
+      "SeoForPages": {
+        "url": null,
+        "seo": {
+          "metaTitle": "About Us",
+          "metaDescription": "blalalalala"
+        }
+      }
     }
   ],
   "articles": [
@@ -123,6 +154,36 @@
       "image": null
     }
   ],
+  "menus": {
+    "id": 1,
+    "PageID": null,
+    "menu_array": [
+      {
+        "id": 1,
+        "text": "Home",
+        "url": "/",
+        "page": {
+          "id": 1
+        }
+      },
+      {
+        "id": 2,
+        "text": "About us",
+        "url": "",
+        "page": {
+          "id": 3
+        }
+      },
+      {
+        "id": 2,
+        "text": "Contact us",
+        "url": "",
+        "page": {
+          "id": 2
+        }
+      }
+    ]
+  },
   "global": {
     "siteName": "Strapi Blog",
     "defaultSeo": {
@@ -130,6 +191,8 @@
       "metaDescription": "A blog made with Strapi",
       "shareImage": null
     },
-    "favicon": null
+    "favicon": null,
+    "logo": null,
+    "footerCopyright": "Zlatex 2021 ©"
   }
 }
