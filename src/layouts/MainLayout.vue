@@ -50,7 +50,7 @@ export default defineComponent({
     const siteLogo = computed(() => $store.getters["global/siteLogo"]);
     const footerCopyright = computed(() => $store.getters["global/footerCopyright"]);
 
-    const menus = computed(() => $store.state.global.menus);
+    const menus = computed(() => $store.getters['global/menus']);
 
     return { siteName, siteLogo, menus, footerCopyright };
   },

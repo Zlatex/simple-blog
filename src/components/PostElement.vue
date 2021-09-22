@@ -10,7 +10,7 @@
           class="text-h6"
           v-html="post.title"
         ></router-link>
-        <div class="text-subtitle2">by {{ post.author.name }}</div>
+        <div class="text-subtitle2" v-if="post.author">by {{ post.author.name }}</div>
       </q-card-section>
 
       <q-card-section
@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import { computed } from "vue";
 export default {
   props: {
     post: {
@@ -48,9 +47,7 @@ export default {
 .post-element {
   padding: 0 20px;
   flex-direction: column;
-  align-self: flex-start;
   margin-bottom: 15px;
-  flex-grow: 1;
   display: flex;
   img {
     width: 100%;

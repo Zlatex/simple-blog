@@ -10,27 +10,31 @@
       <div class="page-content flex flex-center column" v-html="post.content" />
       <q-separator />
       <div class="post-info flex flex-center justify-between">
-        <div>Author: {{ post.author.name }}</div>
+        <div v-if="post.author">Author: {{ post.author.name }}</div>
         <div>Published at: {{ publishedDate }}</div>
-        <div>Category: {{ post.category.name }}</div>
+        <div v-if="post.category">Category: {{ post.category.name }}</div>
       </div>
     </div>
   </q-page>
 </template>
 
 <script>
-import { api } from "boot/axios";
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { date } from "quasar";
 export default {
-  async preFetch({ store, currentRoute }) {
-    await store.dispatch("posts/setCurrentPost", currentRoute.params.slug);
-    const seo = {
-      metaTitle: store.state.posts.post.title,
-      metaDescription: store.state.posts.post.description,
-    };
-    store.commit("global/setSeo", seo);
+  async preFetch({ store, currentRoute, redirect }) {
+    try{
+      await store.dispatch("posts/setCurrentPost", currentRoute.params.slug);
+      const seo = {
+        metaTitle: store.state.posts.post.title,
+        metaDescription: store.state.posts.post.description,
+      };
+      store.commit("global/setSeo", seo);
+    }catch(code){
+      if(code == 404) return redirect('/404')
+      return Promise.reject({code})
+    }
   },
   setup() {
     const $store = useStore();

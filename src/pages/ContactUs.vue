@@ -65,7 +65,7 @@ import { api } from "boot/axios";
 
 export default {
   async preFetch({ store }) {
-    const pageInfo = (await api.get("/pages/contact-us")).data;
+    const pageInfo =( await api.get("/pages/contact-us")).data;
     store.commit("global/setSeo", pageInfo.SeoForPages.seo);
     return store.commit("global/setPageInfo", pageInfo);
   },
@@ -82,35 +82,34 @@ export default {
       content,
 
       async onSubmit() {
-        try {
-          await api.post("/form-submissions", {
-            name: name.value,
-            email: email.value,
-            text: content.value,
-          });
-          $q.notify({
-            color: "green-4",
-            textColor: "white",
-            icon: "cloud_done",
-            message: "Submitted",
-          });
-          name.value = null;
-          email.value = null;
-          content.value = "";
-        } catch (err) {
-          $q.notify({
+        const response = await api.post("/form-submissions", {
+          name: name.value,
+          email: email.value,
+          text: content.value,
+        });
+        if(response.status !== 200){
+          return $q.notify({
             color: "red-5",
             textColor: "white",
             icon: "error",
-            message: err.response?.data?.message || err,
+            message: response?.data?.message || err,
           });
         }
+        $q.notify({
+          color: "green-4",
+          textColor: "white",
+          icon: "cloud_done",
+          message: "Submitted",
+        });
+        name.value = null;
+        email.value = null;
+        content.value = "";
       },
 
       onReset() {
         name.value = null;
         email.value = null;
-        content.value = null;
+        content.value = "";
       },
 
       isValidEmail() {

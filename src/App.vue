@@ -2,7 +2,7 @@
   <router-view />
 </template>
 <script>
-import { defineComponent, computed, watch } from "vue";
+import { defineComponent, computed } from "vue";
 import { useMeta } from "quasar";
 import { useStore } from "vuex";
 
@@ -29,7 +29,7 @@ export default defineComponent({
         link: {
           favicon: {
             rel: 'icon',
-            href: favicon.value 
+            href: favicon.value
           }
         }
       };

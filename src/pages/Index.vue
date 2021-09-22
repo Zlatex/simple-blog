@@ -2,7 +2,7 @@
   <q-page padding class="flex flex-center column">
     <h1 class="text-h3">{{ pageTitle }}</h1>
     <div class="posts-wrapper">
-      <div class="posts row wrap flex-center flex-inline">
+      <div class="posts row wrap items-stretch">
         <post-element
           v-for="post in posts"
           :key="`post-${post.id}`"
@@ -22,7 +22,7 @@ export default defineComponent({
   components: { PostElement },
   name: "PageIndex",
   async preFetch({ store }) {
-    const pageInfo = (await api.get("/pages/home")).data;
+    const pageInfo =( await api.get("/pages/home")).data;
     store.commit("global/setSeo", pageInfo.SeoForPages.seo);
     store.commit("global/setPageInfo", pageInfo);
 
