@@ -1,6 +1,6 @@
 <template>
   <div class="post-element col-12 col-md-4 col-sm-6">
-    <q-card class="card">
+    <q-card class="card flex column">
       <q-img v-if="post.image" :src="backendUrl + post.image.formats.small.url">
       </q-img>
 
@@ -49,17 +49,21 @@ export default {
   flex-direction: column;
   margin-bottom: 15px;
   display: flex;
-  img {
-    width: 100%;
-    height: auto;
-  }
-  .q-card__actions {
-    padding: 0;
-    a {
-      flex-grow: 1;
-      button {
-        padding: 0;
-        width: 100%;
+  .card{
+    height: 100%;
+    .q-img {
+      max-height: 250px;
+      width: 100%;
+    }
+    .q-card__actions {
+      margin-top: auto;
+      padding: 0;
+      a {
+        flex-grow: 1;
+        button {
+          padding: 0;
+          width: 100%;
+        }
       }
     }
   }

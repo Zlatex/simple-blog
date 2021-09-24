@@ -204,7 +204,7 @@ async function importSeedData() {
   await setPublicPermissions({
     global: ["find"],
     menu: ["find"],
-    article: ["find", "findone"],
+    article: ["find", "findone", 'count'],
     'form-submissions': ['create'],
     pages: ["find", "findone"],
     category: ["find", "findone"],

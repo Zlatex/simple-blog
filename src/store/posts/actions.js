@@ -7,3 +7,18 @@ export function setCurrentPost({ state, commit }, slug) {
     resolve(commit("setCurrentPost", post?.data || post));
   });
 }
+
+export async function fetchPosts({ commit }, info) {
+  const postsCount = (await api.get("/articles/count")).data;
+  let offset = postsCount > 9 ? (info.page - 1) * 9 : 0;
+  const posts = (
+    await api.get("/articles", {
+      params: {
+        _limit: 9,
+        _start: offset,
+      },
+    })
+  ).data;
+  commit("setPosts", posts);
+  commit('setPagesCount', postsCount > 9 ? parseInt((postsCount -1) / 9) + 1 : 1 )
+}

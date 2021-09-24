@@ -1,6 +1,7 @@
 export default function () {
   return {
     post: {},
-    posts: []
+    posts: [],
+    pagesCount: 1
   }
 }
